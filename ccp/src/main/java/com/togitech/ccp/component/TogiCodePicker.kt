@@ -122,9 +122,6 @@ class TogiCodePicker {
         if (isOpenDialog) {
             Dialog(
                 onDismissRequest = { isOpenDialog = false },
-                properties = DialogProperties(
-                    usePlatformDefaultWidth = false
-                ),
             ) {
                 Scaffold(
                     topBar = {
