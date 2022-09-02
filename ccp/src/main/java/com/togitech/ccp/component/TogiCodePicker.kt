@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -62,7 +63,8 @@ class TogiCodePicker {
 
         Column(
             modifier = Modifier
-                .padding(padding)
+                .fillMaxHeight()
+
                 .clickable(
                     interactionSource = interactionSource,
                     indication = null
@@ -72,22 +74,41 @@ class TogiCodePicker {
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    modifier = modifier.width(34.dp),
-                    painter = painterResource(
-                        id = getFlags(
-                            isPickCountry.countryCode
-                        )
-                    ), contentDescription = null
-                )
+                Row(
+                    modifier = Modifier.fillMaxHeight().background(color = Color(0xFFE4E4EA)),
+                    verticalAlignment = Alignment.CenterVertically
+                ){
+                    Box(modifier = Modifier.width(14.dp))
+                    Image(
+                        modifier = modifier.width(34.dp),
+                        painter = painterResource(
+                            id = getFlags(
+                                isPickCountry.countryCode
+                            )
+                        ), contentDescription = null
+                    )
+                    Box(modifier = Modifier.width(22.dp))
+                    Icon(painterResource(R.drawable.arrow_down), contentDescription = null)
+                    Box(modifier = Modifier.width(12.dp))
+                }
+
                 if (showCountryCode) {
                     Text(
                         text = isPickCountry.countryPhoneCode,
                         fontWeight = FontWeight.Bold,
-                        modifier = Modifier.padding(start = 6.dp)
+                        modifier = Modifier.padding(start = 6.dp, end = 2.dp)
                     )
-                    Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = null)
+
                 }
+                Box(modifier = Modifier.width(1.dp))
+                Divider(
+
+                    color = Color(0xFF616163),
+                    modifier = Modifier
+                        .height(24.dp)
+                        .width(1.dp)
+                )
+                Box(modifier = Modifier.width(12.dp))
             }
         }
 

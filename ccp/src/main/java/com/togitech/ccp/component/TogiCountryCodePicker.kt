@@ -1,5 +1,6 @@
 package com.togitech.ccp.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -45,7 +46,6 @@ fun TogiCountryCodePicker(
         color = color
     ) {
         Column(
-            modifier = rowPadding
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -53,8 +53,8 @@ fun TogiCountryCodePicker(
             )
             {
                 OutlinedTextField(
-                    modifier = modifier
-                        .fillMaxWidth(),
+                    modifier = Modifier.then(Modifier.height(50.dp))
+                        .fillMaxSize().padding(0.dp),
 
                     value = textFieldValue,
                     colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -77,8 +77,8 @@ fun TogiCountryCodePicker(
                     ),
                     keyboardActions = KeyboardActions(onDone = { keyboardController?.hideSoftwareKeyboard() }),
                     leadingIcon = {
-                        Row {
-                            Column {
+                        Row(modifier = Modifier.fillMaxHeight()) {
+                            Column(modifier = Modifier.fillMaxHeight()) {
                                 val dialog = TogiCodePicker()
                                 dialog.TogiCodeDialog(
                                     pickedCountry = pickedCountry,
