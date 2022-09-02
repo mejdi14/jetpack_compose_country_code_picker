@@ -65,8 +65,8 @@ afterEvaluate {
         publications( {
             release(MavenPublication) {
                 from components.release
-                groupId = 'com.togisoft'
-                artifactId = 'jetpack_country_code_picker'
+                groupId = 'com.mejdi'
+                artifactId = 'zetabox_country_code_picker'
                 version = '1.0'
             }
         })

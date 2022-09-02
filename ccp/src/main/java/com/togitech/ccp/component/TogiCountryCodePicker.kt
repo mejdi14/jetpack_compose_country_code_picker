@@ -53,7 +53,7 @@ fun TogiCountryCodePicker(
             )
             {
                 OutlinedTextField(
-                    modifier = Modifier.then(Modifier.height(50.dp))
+                    modifier = Modifier.then(Modifier.height(55.dp))
                         .fillMaxSize().padding(0.dp),
 
                     value = textFieldValue,
@@ -70,7 +70,7 @@ fun TogiCountryCodePicker(
                     },
                     singleLine = true,
                     visualTransformation = PhoneNumberTransformation(defaultCountry.countryCode.uppercase()),
-                    placeholder = { Text(text = stringResource(id = getNumberHint(defaultCountry.countryCode))) },
+                    placeholder = { Text(text = stringResource(id = R.string.phone_number, modifier.fillMaxHeight().align(Alignment.CenterVertically))) },
                     keyboardOptions = KeyboardOptions.Default.copy(
                         keyboardType = KeyboardType.NumberPassword,
                         autoCorrect = true,
