@@ -2,6 +2,7 @@ package com.togitech.ccp.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -10,6 +11,7 @@ import androidx.compose.material.icons.filled.Warning
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalTextInputService
 import androidx.compose.ui.res.stringResource
@@ -53,9 +55,9 @@ fun TogiCountryCodePicker(
             )
             {
                 OutlinedTextField(
-                    modifier = Modifier.then(Modifier.height(55.dp))
+                    modifier = Modifier.then(Modifier.height(55.dp).clip(shape = RoundedCornerShape(10.dp)).background(color = Color(0xFFF2F2F7)))
                         .fillMaxSize().padding(0.dp),
-
+                    shape = RoundedCornerShape(10.dp),
                     value = textFieldValue,
                     colors = TextFieldDefaults.outlinedTextFieldColors(
                         focusedBorderColor = if (!error) Color.Red else focusedBorderColor,

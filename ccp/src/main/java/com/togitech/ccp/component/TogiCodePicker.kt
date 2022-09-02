@@ -244,7 +244,7 @@ class TogiCodePicker {
                                             )
                                             Text(
                                                 stringResource(id = getCountryName(countryItem.countryCode.lowercase())),
-                                                Modifier.padding(horizontal = 18.dp).weight(8.0f),
+                                                Modifier.padding(horizontal = 18.dp).weight(7.0f),
                                                 color = Color.Black
                                             )
                                             Text(countryItem.countryPhoneCode, modifier = Modifier.weight(1.0f),
